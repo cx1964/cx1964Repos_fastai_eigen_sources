@@ -49,7 +49,8 @@ else
   ### Begin aanpassen ###
   # alle benodigde python packages die geinstalleerd moet worden in de env 
   pipenv install fastbook
- 
+  # Op Ubuntu 20.04 nodig ivm warning mbt missing graphviz
+  pipenv install graphviz
   ## Einde aanpassen ###
 
   # Toon geinstalleerde modules 
