@@ -14,6 +14,7 @@
 
 import fastbook
 from fastai.vision.all import *
+from torch._C import BoolStorageBase
 
 # Bepaal een path naar de plaatjes van Oxford-IIIT Pet Dataset
 path = untar_data(URLs.PETS)/'images'
@@ -28,10 +29,11 @@ def is_cat(x):
 
 dls = ImageDataLoaders.from_name_func(
          path
-        ,get_image_files(path)
+        ,bs=8 # batch size toegevoegd om niet te laten crashen
+        ,fnames=get_image_files(path)
         ,valid_pct=0.2
         ,seed=42
-        ,label_func=is_cat # bepaal om welke foto's het gaat.
+        ,label_func=is_cat # deze functie bepaalt of foto een kat is
         ,item_tfms=Resize(224)
 )
 
@@ -42,12 +44,10 @@ learn.fine_tune(1)
 
 
 img = PILImage.create('/home/claude/Desktop/sources/fast.ai/cx1964Repos_fastai_eigen_sources/test_foto_kat.jpg')
-#img.to_thumb(192)
-# print('Wat gebeurt er?')
+#img.show() # dit werkt niet?
+img.to_thumb(128,128) # dit werkt niet
 
-#img = PILImage.create(uploader.data[0])
+
 is_cat,_,probs = learn.predict(img)
 print(f"Is this a cat?: {is_cat}.")
 print(f"Probability it's a cat: {probs[1].item():.6f}")
-
-
