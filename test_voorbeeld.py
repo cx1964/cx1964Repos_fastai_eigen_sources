@@ -19,24 +19,35 @@ from fastai.vision.all import *
 path = untar_data(URLs.PETS)/'images'
 print('path ', path)
 
-'''
-def is_cat(x): return x[0].isupper()
+
+
+from fastai.text.all import *
+
+def is_cat(x): 
+    return x[0].isupper()
+
 dls = ImageDataLoaders.from_name_func(
-        path, get_image_files(path), valid_pct=0.2, seed=42,
-        label_func=is_cat, item_tfms=Resize(224))
+         path
+        ,get_image_files(path)
+        ,valid_pct=0.2
+        ,seed=42
+        ,label_func=is_cat # bepaal om welke foto's het gaat.
+        ,item_tfms=Resize(224)
+)
 
 learn = cnn_learner(dls, resnet34, metrics=error_rate)
+# ToDo
+# Nog aanpassen onderstaand commanod crashed. Op een of andere manier moet de batchsize van het learning algortime aangepast worden
 learn.fine_tune(1)
-'''
 
-img = PILImage.create(image_cat())
-img.to_thumb(192)
-print('Wat gebeurt er?')
 
-'''
-img = PILImage.create(uploader.data[0])
+img = PILImage.create('/home/claude/Desktop/sources/fast.ai/cx1964Repos_fastai_eigen_sources/test_foto_kat.jpg')
+#img.to_thumb(192)
+# print('Wat gebeurt er?')
+
+#img = PILImage.create(uploader.data[0])
 is_cat,_,probs = learn.predict(img)
 print(f"Is this a cat?: {is_cat}.")
 print(f"Probability it's a cat: {probs[1].item():.6f}")
-'''
+
 
