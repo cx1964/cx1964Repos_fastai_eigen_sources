@@ -1,4 +1,4 @@
-# file: test_voorbeeld_beeld_herkenning.py
+# file: test_voorbeeld_01_beeld_herkenning.py
 # functie: Voorbeeld om te kijken of de fastai python envirnment goed werkt
 #          Dit voorbeld is overgenomen uit jupyter notebook 01_intro.ipynb
 #          dat hoort bij het boek "Deep Learning for Coders with fastai and PyTorch"
