@@ -1,3 +1,3 @@
 # file: run_notebook.sh
-# functie: run jupyter notebook
-jupyter notebook
+# functie: run in environment local jupyter notebook
+pipenv run jupyter notebook
