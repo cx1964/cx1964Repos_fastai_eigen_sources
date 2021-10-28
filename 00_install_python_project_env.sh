@@ -60,7 +60,7 @@ else
   pipenv install jupyter notebook jupyter_contrib_nbextensions
   # info mbt jupyter_contrib_nbextensions
   # https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html
-   
+
   # Op Ubuntu 20.04 nodig ivm warning mbt missing graphviz
   pipenv install graphviz
   ## Einde aanpassen ###
