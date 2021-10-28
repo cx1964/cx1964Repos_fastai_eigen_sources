@@ -26,6 +26,7 @@ jupyter = "*"
 notebook = "*"
 jupyter-contrib-nbextensions = {path = "./jupyter_contrib_nbextensions"}
 graphviz = "*"
+fastbook = "*"
 
 [dev-packages]
 
