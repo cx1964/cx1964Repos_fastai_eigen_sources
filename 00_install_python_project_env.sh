@@ -53,6 +53,7 @@ else
   cd fastai1
   pipenv run python tools/run-after-git-clone
   pipenv run python setup.py -q deps
+  cd ..
   # men kan ook minder fastai dependencies installeren bv --dep-groups=core,vision
   pipenv install $(python setup.py -q deps --dep-groups=core,text,vision)
   
