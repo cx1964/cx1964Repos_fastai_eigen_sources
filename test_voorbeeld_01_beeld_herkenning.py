@@ -14,9 +14,7 @@
 # The pretrained model will be fine-tuned using the latest advances in transfer learning to create a model that is specially
 # customized for recognizing dogs and cats.
 
-
 import fastbook
-
 
 # Deze package bevat de functies en classes die voor het creeren van computer vision models.
 from fastai.vision.all import *
@@ -27,10 +25,6 @@ from torch._C import BoolStorageBase
 # Dit commando download ook de dataset met plaatjes.
 path = untar_data(URLs.PETS)/'images'
 print('path ', path)
-
-
-
-#from fastai.text.all import *
 
 ### Label functie ###
 # Deze functie labelt de plaatjes als katten obv een filename rule
@@ -60,7 +54,6 @@ dls = ImageDataLoaders.from_name_func(
 
 learn = cnn_learner(dls, resnet34, metrics=error_rate)
 learn.fine_tune(1)
-
 
 img = PILImage.create('/home/claude/Desktop/sources/fast.ai/cx1964Repos_fastai_eigen_sources/test_foto_kat.jpg')
 #img.show() # dit werkt niet?
