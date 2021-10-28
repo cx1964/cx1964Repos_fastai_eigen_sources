@@ -47,7 +47,15 @@ else
   pipenv --python $PYTHON_VERSION
 
   ### Begin aanpassen ###
-  # alle benodigde python packages die geinstalleerd moet worden in de env 
+    
+  pipenv lock --clear
+  pipenv install jupyter notebook
+  # Een van onderstaande regels mbt jupyter_contrib_nbextensions krijg ik nog niet geinstalleerd
+  # install jupyter_contrib_nbextensions https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html
+  # pipenv install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+  pipenv install jupyter_contrib_nbextensions
+  
+   # alle benodigde python packages die geinstalleerd moet worden in de env 
   pipenv install fastbook
   # Op Ubuntu 20.04 nodig ivm warning mbt missing graphviz
   pipenv install graphviz
